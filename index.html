@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/header_footer.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
 
@@ -19,27 +19,41 @@
 
 <main>
     
-    <div class="slider_wrap" id="sl_one">
-        <div class="slide_item active_slide">
-            <img src="../media/1.bmp" alt="">
+    <div id="sl_one">
+        <div class="slider">
+            <div class="slide_item active_slide">
+                <img src="../media/1.bmp" alt="">
+            </div>
+            <div class="slide_item">
+                <img src="../media/2.bmp" alt="">
+            </div>
+            <div class="slide_item">
+                <img src="../media/3.bmp" alt="">
+            </div>
         </div>
-        <div class="slide_item">
-            <img src="../media/2.bmp" alt="">
-        </div>
-        <div class="slide_item">
-            <img src="../media/3.bmp" alt="">
+        <div class="slider_nav" id="nav_one">
+            <button class="" data-nav="0"></button>
+            <button class="" data-nav="1"></button>
+            <button class="" data-nav="2"></button>
         </div>
     </div>
 
-    <div class="slider_wrap" id="sl_two">
-        <div class="slide_item active_slide">
-            <img src="../media/4.bmp" alt="">
+    <div id="sl_two">
+        <div class="slider">
+            <div class="slide_item active_slide">
+                <img src="../media/4.bmp" alt="">
+            </div>
+            <div class="slide_item">
+                <img src="../media/5.bmp" alt="">
+            </div>
+            <div class="slide_item">
+                <img src="../media/6.bmp" alt="">
+            </div>
         </div>
-        <div class="slide_item">
-            <img src="../media/5.bmp" alt="">
-        </div>
-        <div class="slide_item">
-            <img src="../media/6.bmp" alt="">
+        <div class="slider_nav" id="nav_two">
+            <button data-nav="3"></button>
+            <button data-nav="4"></button>
+            <button data-nav="5"></button>
         </div>
     </div>
 </main>
@@ -67,6 +81,6 @@
     </ul>
 </footer>
 
-<script type="text/javascript" src="js/my_slider.js"></script>
+<script type="text/javascript" src="../js/my_slider.js"></script>
 </body>
 </html>
