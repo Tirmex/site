@@ -2,34 +2,37 @@ main{
     height: calc(100% - 155px);
     padding-top: 125px;
     display: grid;
-    grid-template-columns: 2fr 3fr 1fr 2fr ;
+    grid-template-columns: 2fr auto auto 2fr ;
     grid-gap: 20px;
     overflow: hidden;
 }
 
-.slider_wrap{
-    background-color: rgb(123, 165, 65);
-    border-radius: 10px;
-    position: relative;
-}
-
 #sl_one{
-    height: 625px;
-    width: 720px;
     grid-column: 2/3;
+    height: 625px;
+    width: 700px;
+    text-align: center;
 }
 
 #sl_two{
-    height: 550px;
-    width: 345px;
     grid-column: 3/4;
+    height: 555px;
+    width: 325px;
     margin-top: 30px;
+    text-align: center;
+}
+
+.slider{
+    position: relative;
+    padding: 15px;
+    background-color: rgb(123, 165, 65);
+    border-radius: 10px;
+
+    height: calc(100% - 20px);
 }
 
 .slide_item{
     position: absolute;
-    left: 25px;
-    top: 25px;
     opacity: 0;
     transition: opacity 1s;
 }
@@ -37,3 +40,13 @@ main{
 .active_slide{
     opacity: 1;
 }
+
+.slider_nav button{
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 0;
+    }
