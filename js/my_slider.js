@@ -1,43 +1,50 @@
 
-    const first_slider = document.getElementById("sl_one").firstElementChild.children;
-    
-    const second_slider = document.getElementById("sl_two").firstElementChild.children;
+const first_slider = document.getElementById('sl_one').querySelector(".slider");
+const second_slider = document.getElementById('sl_two').querySelector(".slider");
 
-    // var fr_sl_num = {number: 0 };
-    // var sc_sl_num = {number: 0 };
+const first_slider_nav = document.getElementById('sl_one').querySelector(".slider_nav");
+const second_slider_nav = document.getElementById('sl_two').querySelector(".slider_nav");
 
-    var active_slide = document.querySelector(".active_slide");
-
-    function change_slide(obj) {
-        clearTimeout(timerid);
-        obj.classList.remove("active_slide");
-        if ( obj.nextElementSibling == null ){
-            first_slider[0].classList.add("active_slide");
-        }
-        else {
-            obj.nextElementSibling.classList.add("active_slide");
-        }
-        active_slide = document.querySelector(".active_slide");
-        timerid = setTimeout(change_slide, 4000, active_slide);
+//Смена активного слайда
+function next_slide(slider) {
+    let cur_slide = slider.querySelector(".active_slide");
+    cur_slide.classList.remove("active_slide");
+    if (cur_slide.nextElementSibling == null){
+        slider.children[0].classList.add("active_slide");
     }
-
-    function focus(number){
-        clearTimeout(timerid);
-        for(var i = 0; i<3 ;i++){
-            first_slider[i].classList.remove("active_slide");
-        }
-        first_slider[number].classList.add("active_slide");
-        active_slide = document.querySelector(".active_slide");
-        timerid = setTimeout(change_slide, 4000, active_slide);
+    else {
+        cur_slide.nextElementSibling.classList.add("active_slide");
     }
+}
 
-    // навигация
-    const first_slider_nav = document.getElementById("sl_one").lastElementChild.children;
-    const second_slider_nav = document.getElementById("sl_two").lastElementChild.children;
+//Смена фокуса
+function focus(slider, button_num, interval_id){
+    for(var i = 0; i<slider.childElementCount; i++){
+        slider.children[i].classList.remove("active_slide");
+    }
+    slider.children[button_num].classList.add("active_slide");
 
-    first_slider_nav[0].addEventListener("click", () => focus(0));
-    first_slider_nav[1].addEventListener("click", () => focus(1));
-    first_slider_nav[2].addEventListener("click", () => focus(2));
+    clearInterval(interval_id[0]);
+    interval_id[0] = [setInterval( ()=> next_slide(slider), 4000)];
+}
 
-    timerid = setTimeout(change_slide, 4000, active_slide);
-    // setInterval(change_slide, 4000, second_slider, sc_sl_num);
+//Привязка функции фокуса к кнопкам с делегированием
+first_slider_nav.onclick = 
+    function(event) {
+        let target = event.target;
+        if (target.tagName != "BUTTON") return;
+
+        focus(first_slider, target.dataset.nav, first_interval_id);
+    };
+
+second_slider_nav.onclick = 
+    function(event) {
+        let target = event.target;
+        if (target.tagName != "BUTTON") return;
+
+        focus(second_slider, target.dataset.nav, second_interval_id);
+    };
+
+//Запуск интервалов
+let first_interval_id = [setInterval( ()=> next_slide(first_slider), 4000)];
+let second_interval_id =  [setInterval( ()=> next_slide(second_slider), 4000)];
