@@ -41,7 +41,6 @@ second_slider_nav.onclick =
     function(event) {
         let target = event.target;
         if (target.tagName != "BUTTON") return;
-
         focus(second_slider, target.dataset.nav, second_interval_id);
     };
 
