@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 body{
     margin: 0;
-    min-width: 1280px;
+    min-width: 1140px;
     background-color: rgb(239, 243, 226);
     font-family: "DaxlinePro";
     color: rgb(118, 162, 73);
@@ -58,13 +58,14 @@ header{
     width: 100%;
     min-width: 1280px;
     display: grid;
-    grid-template-columns: 20% 1fr 1fr 1fr 1fr 20%;
+    grid-template-columns: 15% 1fr 1fr 1fr 1fr 17%;
     grid-template-areas: "none logo promo card login";
     justify-items: center;
     align-items: center;
     background-color: white;
     font-size: 30px;
     box-shadow: 0px -50px 23px 40px black;
+    z-index: 5;
 }
 
 .logo{
@@ -86,7 +87,7 @@ header{
 
 .login{
     grid-area: login;
-    padding: 8px 10px 4px 10px;
+    padding: 14px 25px 10px 25px;
     background-color: rgb(217, 0, 55);
     border-radius: 10px;
     color: white;
