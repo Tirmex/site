@@ -1,9 +1,9 @@
 
 const first_slider = document.getElementById('sl_one').querySelector(".slider");
-const second_slider = document.getElementById('sl_two').querySelector(".slider");
+
 
 const first_slider_nav = document.getElementById('sl_one').querySelector(".slider_nav");
-const second_slider_nav = document.getElementById('sl_two').querySelector(".slider_nav");
+
 
 //Смена активного слайда
 function next_slide(slider) {
@@ -37,13 +37,6 @@ first_slider_nav.onclick =
         focus(first_slider, target.dataset.nav, first_interval_id);
     };
 
-second_slider_nav.onclick = 
-    function(event) {
-        let target = event.target;
-        if (target.tagName != "BUTTON") return;
-        focus(second_slider, target.dataset.nav, second_interval_id);
-    };
-
 //Запуск интервалов
 let first_interval_id = [setInterval( ()=> next_slide(first_slider), 4000)];
-let second_interval_id =  [setInterval( ()=> next_slide(second_slider), 4000)];
+
